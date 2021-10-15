@@ -6,8 +6,11 @@ const msgerChat = get(".msger-chat");
 // Icons made by Freepik from www.flaticon.com
 const BOT_IMG = "https://image.flaticon.com/icons/svg/327/327779.svg";
 const PERSON_IMG = "https://image.flaticon.com/icons/svg/145/145867.svg";
-const BOT_NAME = "BOT";
+const BOT_NAME = "Sally";
 const PERSON_NAME = "YOU";
+
+document.getElementById("time1").innerHTML=new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+document.getElementById("time2").innerHTML=new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
 
 msgerForm.addEventListener("submit", event => {
   event.preventDefault();
@@ -23,6 +26,8 @@ msgerForm.addEventListener("submit", event => {
 
 function appendMessage(name, img, side, text) {
   //   Simple solution for small apps
+  var today = new Date();
+  var time = today.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
   const msgHTML = `
     <div class="msg ${side}-msg">
       <div class="msg-img" style="background-image: url(${img})"></div>
@@ -30,7 +35,7 @@ function appendMessage(name, img, side, text) {
       <div class="msg-bubble">
         <div class="msg-info">
           <div class="msg-info-name">${name}</div>
-          <div class="msg-info-time">${formatDate(new Date())}</div>
+          <div class="msg-info-time">${time}</div>
         </div>
 
         <div class="msg-text">${text}</div>
